@@ -1,5 +1,6 @@
 body {
-  background: url(./images/tan\ dog\ bones.png);
+  background-image: url(./images/tan\ dog\ bones.png);
+  background-blend-mode: lighten;
 }
 
 #heading {
