@@ -5,17 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced JavaScript SBA</title>
     <script defer src="index.mjs" type="module"></script>
+    <link rel="stylesheet" href="script.css" />
   </head>
   <body>
     <div class="full-container">
-      <h1>Dog Identification App</h1>
-      <h2>
-        Select the name of a dog breed from the dropdown below and find facts on
-        the breed!
-      </h2>
-      <h3>Built using The Dog API (found <a href="thedogapi.com">here</a> )</h3>
+      <div id="heading">
+        <h1>Dog Identification App</h1>
+        <h2>
+          Select the name of a dog breed from the dropdown below and find facts
+          on the breed!
+        </h2>
+        <h3>
+          Built using The Dog API (found <a href="thedogapi.com">here</a> )
+        </h3>
+      </div>
+      <div id="search">
+        <select name="dog" id="dog">
+          <option value="">Select a dog breed</option>
+        </select>
+      </div>
       <div id="content">
-        <div id="photo"></div>
+        <div id="photo">
+          <div class="photo-spot"></div>
+        </div>
+        <div>
+          <h4 id="info">Dog Breed Facts:</h4>
+          <ul class="facts"></ul>
+        </div>
       </div>
     </div>
   </body>
