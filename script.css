@@ -1,5 +1,19 @@
+body {
+  background: url(./images/tan\ dog\ bones.png);
+}
+
 #heading {
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: center;
+}
+
+#search {
+  display: flex;
+  justify-content: center;
+}
+
+#content {
+  display: flex;
+  justify-content: space-evenly;
 }
