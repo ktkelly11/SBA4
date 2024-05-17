@@ -12,7 +12,7 @@ const API_Key =
 const url = " https://api.thedogapi.com/v1/breeds";
 let storedBreeds = [];
 
-const image = document.getElementsByTagName("img");
+const image = document.getElementById("pic");
 
 function populateDropdown(breeds) {
   breeds.forEach((breed) => {
@@ -25,7 +25,9 @@ function populateDropdown(breeds) {
 
 async function fetchBreeds() {
   try {
-    const response = await fetch("https://api.thedogapi.com/v1/breeds");
+    const response = await fetch(
+      `https://api.thedogapi.com/v1/breeds?api_key=${API_Key}`
+    );
     const data = await response.json();
     console.log(data);
     storedBreeds = data;
@@ -45,10 +47,22 @@ breedSelect.addEventListener("change", (evt) => {
         return breed.name === evt.target.value;
       });
       console.log(evt.target.value);
-      //   console.log(storedBreeds);
+      //   console.log(breed);
       console.log(selectedBreed);
-      fetch;
-    } catch {}
+      console.log(selectedBreed.image.url);
+      const response = await fetch(
+        `https://api.thedogapi.com/v1/images/search?breed_id=${selectedBreed.image.url}`
+      );
+      const data = await response.json();
+      console.log(data);
+
+      // const img = document.createElement("img");
+
+      image.src = selectedBreed.image.url;
+      // image.appendChild(img);
+    } catch (err) {
+      console.log(err);
+    }
   }
   getDogPics();
 });
