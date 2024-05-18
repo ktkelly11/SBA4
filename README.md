@@ -9,6 +9,7 @@ I adore man's best friend. I didn't want to stray too far from the Cat API we ha
 My Dog API uses a number of open source projects in order to work properly:
 
 - The Dog API (https://www.thedogapi.com/)
+- The JSON Placeholder API (https://jsonplaceholder.typicode.com/)
 - HTML
 - CSS
 - Flexbox

@@ -1,15 +1,13 @@
 console.log("First file");
 
-import "./script.mjs";
+import { breedSelect, url } from "./script.mjs";
+// import * as dogStuff from "./script.mjs";
 import "./third.mjs";
 // can also use "import {name} from "file name""
-
-const breedSelect = document.getElementById("dog");
 
 const API_Key =
   "live_gq7bJyh2oCEFvPNVektDFnCpic3JV1FRHN1wDIfEdcEv7TbqXS7WbcftT5VbrqCF";
 
-const url = " https://api.thedogapi.com/v1/breeds";
 let storedBreeds = [];
 
 const image = document.getElementById("pic");
@@ -25,9 +23,7 @@ function populateDropdown(breeds) {
 
 async function fetchBreeds() {
   try {
-    const response = await fetch(
-      `https://api.thedogapi.com/v1/breeds?api_key=${API_Key}`
-    );
+    const response = await fetch(`${url}?api_key=${API_Key}`);
     const data = await response.json();
     console.log(data);
     storedBreeds = data;
@@ -57,9 +53,13 @@ breedSelect.addEventListener("change", (evt) => {
       console.log(data);
 
       // const img = document.createElement("img");
-
       image.src = selectedBreed.image.url;
       // image.appendChild(img);
+      if (image.style.height >= image.style.width) {
+        image.style.height = "500px";
+      } else {
+        image.style.width = "500px";
+      }
     } catch (err) {
       console.log(err);
     }
